@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery UI Hide - Default functionality</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .toggler { width: 500px; height: 200px; }
+        #button { padding: .5em 1em; text-decoration: none; }
+        #effect { width: 240px; height: 170px; padding: 0.4em; position: relative; }
+        #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+        </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $( function() {
+          // run the currently selected effect
+          function runEffect() {
+            // get effect type from
+            var selectedEffect = $( "#effectTypes" ).val();
+       
+            // Most effect types need no options passed by default
+            var options = {};
+            // some effects have required parameters
+            if ( selectedEffect === "scale" ) {
+              options = { percent: 50 };
+            } else if ( selectedEffect === "size" ) {
+              options = { to: { width: 200, height: 60 } };
+            }
+       
+            // Run the effect
+            $( "#effect" ).hide( selectedEffect, options, 1000, callback );
+          };
+       
+          // Callback function to bring a hidden box back
+          function callback() {
+            setTimeout(function() {
+              $( "#effect" ).removeAttr( "style" ).hide().fadeIn();
+            }, 1000 );
+          };
+       
+          // Set effect from select menu value
+          $( "#button" ).on( "click", function() {
+            runEffect();
+          });
+        } );
+        </script>
+    
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group list-group-flush">
+                    <h5 class="bg-light">Interactions</h5>
+                    <ul>
+                        <li><a href="draggable.html" class="list-group-item list-group-item-action">Draggable</a></li>
+                        <li><a href="droppable.html" class="list-group-item list-group-item-action">Droppable</a></li>
+                        <li><a href="resizeable.html" class="list-group-item list-group-item-action">Resizeable</a></li>
+                        <li> <a href="selectable.html" class="list-group-item list-group-item-action">Selectable</a>
+                        </li>
+                        <li> <a href="sortable.html" class="list-group-item list-group-item-action">Sortable</a></li>
+                    </ul>
+                    <h5 class="bg-light">Widgets</h5>
+                    <ul>
+                        <li><a href="accordion.html" class="list-group-item list-group-item-action">Accordion</a></li>
+                        <li><a href="autocomplete.html" class="list-group-item list-group-item-action">Autocomplete</a></li>
+                        <li><a href="button.html" class="list-group-item list-group-item-action">Button</a></li>
+                        <li><a href="checkboxradio.html" class="list-group-item list-group-item-action">Checkboxradio</a></li>
+                        <li><a href="controlgroup.html" class="list-group-item list-group-item-action">Controlgroup</a></li>
+                        <li><a href="datepicker.html" class="list-group-item list-group-item-action">Datepicker</a></li>
+                        <li><a href="dialog.html" class="list-group-item list-group-item-action">Dialog</a></li>
+                        <li><a href="menu.html" class="list-group-item list-group-item-action">Menu</a></li>
+                        <li><a href="progressbar.html" class="list-group-item list-group-item-action">Progressbar</a></li>
+                        <li><a href="selectmenu.html" class="list-group-item list-group-item-action">Selectmenu</a></li>
+                        <li><a href="slider.html" class="list-group-item list-group-item-action">Slider</a></li>
+                        <li><a href="spinner.html" class="list-group-item list-group-item-action">Spinner</a></li>
+                        <li><a href="tabs.html" class="list-group-item list-group-item-action">Tabs</a></li>
+                        <li><a href="tooltip.html" class="list-group-item list-group-item-action">Tooltip</a></li>
+                    </ul>
+                    <h5 class="bg-light">Effects</h5>
+                    <ul>
+                        <li><a href="addclass.html" class="list-group-item list-group-item-action">Add Class</a></li>
+                        <li><a href="coloranimation.html" class="list-group-item list-group-item-action">Color Animation</a></li>
+                        <li><a href="easing.html" class="list-group-item list-group-item-action">Easing</a></li>
+                        <li><a href="effect.html" class="list-group-item list-group-item-action">Effect</a></li>
+                        <li><a href="hide.html" class="list-group-item list-group-item-action">Hide</a></li>
+                        <li><a href="removeclass.html" class="list-group-item list-group-item-action">Remove Class</a></li>
+                        <li><a href="show.html" class="list-group-item list-group-item-action">Show</a></li>
+                        <li><a href="switchclass.html" class="list-group-item list-group-item-action">Switch Class</a></li>
+                        <li><a href="toggle.html" class="list-group-item list-group-item-action">Toggle</a></li>
+                        <li><a href="toggleclass.html" class="list-group-item list-group-item-action">Toggle Class</a></li>
+                    </ul>
+                    <h5 class="bg-light">Utilities</h5>
+                    <ul>
+                        <li><a href="position.html" class="list-group-item list-group-item-action">Position</a></li>
+                        <li><a href="widgetfactory.html" class="list-group-item list-group-item-action">Widget Factory</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1>Hide</h1>
+                <hr>
+                <p>Hide elements using custom effects.</p>
+                <div class="card" style="height: 500px;">
+                    <div class="toggler">
+                        <div id="effect" class="ui-widget-content ui-corner-all">
+                          <h3 class="ui-widget-header ui-corner-all">Hide</h3>
+                          <p>
+                            Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+                          </p>
+                        </div>
+                      </div>
+                       
+                      <div class="select">
+                            <select name="effects" id="effectTypes">
+                                    <option value="blind">Blind</option>
+                                    <option value="bounce">Bounce</option>
+                                    <option value="clip">Clip</option>
+                                    <option value="drop">Drop</option>
+                                    <option value="explode">Explode</option>
+                                    <option value="fade">Fade</option>
+                                    <option value="fold">Fold</option>
+                                    <option value="highlight">Highlight</option>
+                                    <option value="puff">Puff</option>
+                                    <option value="pulsate">Pulsate</option>
+                                    <option value="scale">Scale</option>
+                                    <option value="shake">Shake</option>
+                                    <option value="size">Size</option>
+                                    <option value="slide">Slide</option>
+                                  </select>
+                                  <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+                      </div>
+                       
+                      
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

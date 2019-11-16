@@ -1,0 +1,6 @@
+*, ::after, ::before {
+    box-sizing: unset;
+}
+.newClass {
+    height: 150px;
+}
